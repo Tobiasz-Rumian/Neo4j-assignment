@@ -1,0 +1,32 @@
+1.	Wszystkie filmy
+MATCH (m:Movie) return m
+2.	Wszystkie filmy, w których grał Hugo Weaving
+MATCH (n:Person)-[r:ACTED_IN]->(m:Movie) WHERE n.name="Hugo Weaving" return m
+3.	Reżyserzy filmów, w których grał Hugo Weaving
+MATCH (n:Person)-[r:ACTED_IN]->(m:Movie)<-[r2:DIRECTED]-(p:Person) WHERE n.name="Hugo Weaving" return p
+4.	Wszystkie osoby, z którymi Hugo Weaving grał w tych samych filmach
+MATCH (n:Person)-[r:ACTED_IN]->(m:Movie)<-[r2:ACTED_IN]-(p:Person) WHERE n.name="Hugo Weaving" return p
+5.	Wszystkie filmy osób, które grały w Matrix
+MATCH (m2:Movie)<-[r2:ACTED_IN]-(n:Person)-[r:ACTED_IN]->(m:Movie) WHERE m.title="The Matrix" return m2
+6.	Listę aktorów (aktor = osoba, która grała przynajmniej w jednym filmie) wraz z ilością filmów, w których grali
+MATCH (n:Person)-[r:ACTED_IN]->(m:Movie) WITH n,count(m) as movieCount return n,movieCount
+7.	Listę osób, które napisały scenariusz filmu, które wyreżyserowały wraz z tytułami takich filmów (koniunkcja – ten sam autor scenariusza i reżyser)
+MATCH (p:Person)-[:WROTE]->(movie:Movie), (p)-[:DIRECTED]->(movie) return movie,p
+8.	Listę filmów, w których grał zarówno Hugo Weaving jak i Keanu Reeves
+match (p:Person)-[:ACTED_IN]->(movie:Movie),(r:Person)-[:ACTED_IN]->(movie) WHERE p.name="Hugo Weaving" AND r.name="Keanu Reeves" return movie
+9.	(za 0.2pkt) Zestaw zapytań powodujących uzupełnienie bazy danych o film Captain America: The First Avenger wraz z uzupełnieniem informacji o reżyserze,
+ scenarzystach i odtwórcach głównych ról (w oparciu o skrócone informacje z IMDB - http://www.imdb.com/title/tt0458339/) + zapytanie pokazujące dodany do bazy film wraz odtwórcami głównych ról, scenarzystą i reżyserem. Plik SVG ma pokazywać wynik ostatniego zapytania.
+CREATE (n:Movie{title:'Captain America: The First Avenger',tagline:'The best superhero movie ever',released:2011})
+CREATE (n:Person{name:'Joe Johnston',born:1950})
+CREATE (n:Person{name:'Christopher Markus',born:1970})
+CREATE (n:Person{name:'Stephen McFeely',born:1969})
+CREATE (n:Person{name:'Chris Evans',born:1981})
+CREATE (n:Person{name:'Hayley Atwell',born:1982})
+CREATE (n:Person{name:'Sebastian Stan',born:1982})
+MATCH (a:Person),(b:Movie) WHERE a.name="Joe Johnston" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:DIRECTED]->(b) RETURN type(r)
+MATCH (a:Person),(b:Movie) WHERE a.name="Christopher Markus" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:WROTE]->(b) RETURN type(r)
+MATCH (a:Person),(b:Movie) WHERE a.name="Stephen McFeely" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:WROTE]->(b) RETURN type(r)
+MATCH (a:Person),(b:Movie) WHERE a.name="Chris Evans" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:ACTED_IN{roles:['Captain America','Steve Rogers']}]->(b) RETURN type(r)
+MATCH (a:Person),(b:Movie) WHERE a.name="Hayley Atwell" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:ACTED_IN{roles:['Peggy Carter']}]->(b) RETURN type(r)
+MATCH (a:Person),(b:Movie) WHERE a.name="Sebastian Stan" AND b.title="Captain America: The First Avenger" CREATE (a)-[r:ACTED_IN{roles:['James Buchanan \'Bucky\' Barnes']}]->(b) RETURN type(r)
+MATCH (a:Person)-[r]->(b:Movie) WHERE b.title="Captain America: The First Avenger" RETURN a,r,b

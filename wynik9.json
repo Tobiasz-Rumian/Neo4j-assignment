@@ -1,0 +1,195 @@
+﻿[
+  {
+    "a": {
+      "identity": 175,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Sebastian Stan",
+        "born": 1982
+      }
+    },
+    "r": {
+      "identity": 255,
+      "start": 175,
+      "end": 169,
+      "type": "ACTED_IN",
+      "properties": {
+        "roles": [
+          "James Buchanan 'Bucky' Barnes"
+        ]
+      }
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  },
+  {
+    "a": {
+      "identity": 174,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Hayley Atwell",
+        "born": 1982
+      }
+    },
+    "r": {
+      "identity": 254,
+      "start": 174,
+      "end": 169,
+      "type": "ACTED_IN",
+      "properties": {
+        "roles": [
+          "Peggy Carter"
+        ]
+      }
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  },
+  {
+    "a": {
+      "identity": 173,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Chris Evans",
+        "born": 1981
+      }
+    },
+    "r": {
+      "identity": 253,
+      "start": 173,
+      "end": 169,
+      "type": "ACTED_IN",
+      "properties": {
+        "roles": [
+          "Captain America",
+          "Steve Rogers"
+        ]
+      }
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  },
+  {
+    "a": {
+      "identity": 172,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Stephen McFeely",
+        "born": 1969
+      }
+    },
+    "r": {
+      "identity": 252,
+      "start": 172,
+      "end": 169,
+      "type": "WROTE",
+      "properties": {}
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  },
+  {
+    "a": {
+      "identity": 171,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Christopher Markus",
+        "born": 1970
+      }
+    },
+    "r": {
+      "identity": 251,
+      "start": 171,
+      "end": 169,
+      "type": "WROTE",
+      "properties": {}
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  },
+  {
+    "a": {
+      "identity": 170,
+      "labels": [
+        "Person"
+      ],
+      "properties": {
+        "name": "Joe Johnston",
+        "born": 1950
+      }
+    },
+    "r": {
+      "identity": 250,
+      "start": 170,
+      "end": 169,
+      "type": "DIRECTED",
+      "properties": {}
+    },
+    "b": {
+      "identity": 169,
+      "labels": [
+        "Movie"
+      ],
+      "properties": {
+        "title": "Captain America: The First Avenger",
+        "tagline": "The best superhero movie ever",
+        "released": 2011
+      }
+    }
+  }
+]
